@@ -34,10 +34,8 @@ jobs:
 
       - name: Commit and force-push SVGs to target branch
         run: |
-          git checkout --orphan github-breakout
-          git rm -rf .
-          mkdir images
+          mkdir -p images
           mv /tmp/breakout-images/* images/
           git add images
           git commit -m "chore: update GitHub breakout SVGs" || echo "No changes to commit"
-          git push --force origin github-breakout
+          git push --force origin main
